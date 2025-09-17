@@ -9,7 +9,7 @@ if [[ $NoAsyncLoadingThread == "false" ]]; then
 fi
 
 IsModded='WINEDLLOVERRIDES="version.dll=n,b"'
-if [[IsModded == "false"]]; then
+if [[ $IsModded == "false"]]; then
     IsModded=""
 fi
 
