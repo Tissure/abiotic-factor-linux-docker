@@ -32,7 +32,8 @@ if [ ! -d "/server/AbioticFactor/Binaries/Win64" ] || [[ $AutoUpdate == "true" ]
 fi
 
 pushd /server/AbioticFactor/Binaries/Win64 > /dev/null
-exec WINEDLLOVERRIDES=$SetIsModded wine AbioticFactorServer-Win64-Shipping.exe $SetUsePerfThreads$SetNoAsyncLoadingThread-MaxServerPlayers=$MaxServerPlayers \
+export WINEDLLOVERRIDES=$SetIsModded
+exec wine AbioticFactorServer-Win64-Shipping.exe $SetUsePerfThreads$SetNoAsyncLoadingThread-MaxServerPlayers=$MaxServerPlayers \
     -PORT=$Port -QueryPort=$QueryPort -ServerPassword=$ServerPassword \
     -SteamServerName="$SteamServerName" -WorldSaveName="$WorldSaveName" -tcp $AdditionalArgs
 popd > /dev/null
