@@ -8,9 +8,9 @@ if [[ $NoAsyncLoadingThread == "false" ]]; then
     SetNoAsyncLoadingThread=""
 fi
 
-SetIsModded='"version.dll=n,b"'
-if [[ $IsModded == "false" ]]; then
-    SetIsModded=""
+SetIsModded=""
+if [[ $IsModded == "true" ]]; then
+    SetIsModded='"version.dll=n,b"'
 fi
 
 MaxServerPlayers="${MaxServerPlayers:-6}"
