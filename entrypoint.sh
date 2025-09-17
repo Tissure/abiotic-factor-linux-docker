@@ -8,9 +8,9 @@ if [[ $NoAsyncLoadingThread == "false" ]]; then
     SetNoAsyncLoadingThread=""
 fi
 
-IsModded='WINEDLLOVERRIDES="version.dll=n,b"'
+SetIsModded='WINEDLLOVERRIDES="version.dll=n,b"'
 if [[ $IsModded == "false" ]]; then
-    IsModded=""
+    SetIsModded=""
 fi
 
 MaxServerPlayers="${MaxServerPlayers:-6}"
@@ -32,7 +32,7 @@ if [ ! -d "/server/AbioticFactor/Binaries/Win64" ] || [[ $AutoUpdate == "true" ]
 fi
 
 pushd /server/AbioticFactor/Binaries/Win64 > /dev/null
-$IsModded wine AbioticFactorServer-Win64-Shipping.exe $SetUsePerfThreads$SetNoAsyncLoadingThread-MaxServerPlayers=$MaxServerPlayers \
+$SetIsModded wine AbioticFactorServer-Win64-Shipping.exe $SetUsePerfThreads$SetNoAsyncLoadingThread-MaxServerPlayers=$MaxServerPlayers \
     -PORT=$Port -QueryPort=$QueryPort -ServerPassword=$ServerPassword \
     -SteamServerName="$SteamServerName" -WorldSaveName="$WorldSaveName" -tcp $AdditionalArgs
 popd > /dev/null
